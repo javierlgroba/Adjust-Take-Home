@@ -15,7 +15,7 @@ var consoleMutex = &sync.Mutex{}
 
 func fixUrl(url string) string {
 	//Add http:// if it is not a well formed url
-	result, err := regexp.MatchString("http.*://", url)
+	result, err := regexp.MatchString("http(s)?://.*", url)
 
 	if err != nil {
 		log.Println(err)
