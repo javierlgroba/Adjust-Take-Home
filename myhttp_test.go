@@ -28,8 +28,8 @@ func TestFixUrl(t *testing.T) {
 
 	//It's impossible to construct a proper url from this
 	got = fixUrl("httpsss://www.google.com")
-	if got != "httpsss://www.google.com" {
-		t.Errorf("fixUrl(\"httpsss://www.google.com\") = %s; want \"httpsss://www.google.com\")", got)
+	if got != "http://httpsss://www.google.com" {
+		t.Errorf("fixUrl(\"httpsss://www.google.com\") = %s; want \"http://httpsss://www.google.com\")", got)
 	}
 }
 
