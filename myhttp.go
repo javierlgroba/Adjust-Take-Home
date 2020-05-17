@@ -37,7 +37,9 @@ func request(url string, sem chan int) {
 
 	if err != nil {
 		//Indicate error and notify the channel
+		consoleMutex.Lock()
 		fmt.Printf("Error requesting: '%s'.\n", url)
+		consoleMutex.Unlock()
 		<-sem
 		return
 	}
