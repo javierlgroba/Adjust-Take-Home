@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
 	"sync"
 )
@@ -63,7 +64,7 @@ func main() {
 
 	if parallel == 0 {
 		fmt.Println("parallel cannot be 0.")
-		return
+		os.Exit(1)
 	}
 
 	//Create the channel for parallel communication
@@ -82,4 +83,5 @@ func main() {
 	for i := 1; i <= parallel; i++ {
 		sem <- i
 	}
+	os.Exit(0)
 }
